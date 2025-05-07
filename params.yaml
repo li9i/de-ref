@@ -1,0 +1,17 @@
+params:
+  - symbol: abc_string
+    files:
+      - file1.txt
+      - file2.txt
+    value: "abc"
+
+  - symbol: test_string
+    files:
+      - file1.txt
+      - file3.txt
+    value: "/test/this/ok.txt"
+
+  - symbol: other_string
+    files:
+      - file2.txt
+    value: "$HOME/example/dir"

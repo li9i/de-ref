@@ -1,0 +1,17 @@
+params:
+  - symbol: abc_string
+    files:
+      - test-files/file1.txt
+      - test-files/file2.txt
+    hardcoded_value: "abc"
+
+  - symbol: test_string
+    files:
+      - test-files/file1.txt
+      - test-files/file3.txt
+    hardcoded_value: "/test/this/ok.txt"
+
+  - symbol: other_string
+    files:
+      - test-files/file2.txt
+    hardcoded_value: /my/hardcoded/path
