@@ -1,19 +1,23 @@
 #!/bin/bash
 set -euo pipefail
 
-PARAM_FILE="params/symbolise.yaml"
+source "$(dirname "$0")/lib.sh"
 
 param_count=$(yq eval '.params | length' "$PARAM_FILE")
 
 for i in $(seq 0 $((param_count - 1))); do
-  symbol=$(yq eval ".params[$i].symbol" "$PARAM_FILE")
-  hardcoded_value=$(yq eval ".params[$i].hardcoded_value" "$PARAM_FILE")
+  if ! load_param "$i"; then
+    continue
+  fi
 
-  [[ -z "$symbol" ]] && continue
+  if [[ "$mode" == "env" ]]; then
+    validate_env_vars "$value"
+  fi
 
-  files=$(yq eval ".params[$i].files[]" "$PARAM_FILE")
   for file in $files; do
-    echo "Replacing '$hardcoded_value' -> $symbol in $file"
-    sed -i "s|$hardcoded_value|$symbol|g" "$file"
+    safe_expanded_value=$(escape_sed_replacement "$expanded_value")
+    echo "Symbolizing '$expanded_value' → \${$symbol} in $file"
+    sed -i "s|$safe_expanded_value|\${$symbol}|g" "$file"
   done
+
 done
