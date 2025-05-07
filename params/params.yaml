@@ -1,7 +1,11 @@
 params:
   - symbol: "c9ad3ee"
-    files:
-      - /home/robetarme_user/ros2_ws/src/robetarme_bt/robetarme_bt_site_orchestrator/launch/site_orchestrator.launch.xml
-      - /home/robetarme_user/ros2_ws/install/robetarme_bt_site_orchestrator/share/robetarme_bt_site_orchestrator/launch/site_orchestrator.launch.xml
     value: "$(var use_case_base_tree_path_absolute)/$(var tree)"
     mode: literal
+    files:
+      - $HOME/Desktop/test-magna-carta/test-files/file1.txt
+  - symbol: "3eec9ad"
+    value: "$HOME"
+    mode: literal
+    files:
+      - /home/member/Desktop/test-magna-carta/test-files/file2.txt

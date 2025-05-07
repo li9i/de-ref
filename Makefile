@@ -1,15 +1,13 @@
-SYMBOLISE = scripts/symbolise.sh
-SUBSTITUTE = scripts/substitute.sh
+.PHONY: symbolize substitute dry-symbolize dry-substitute
 
-.PHONY: symbolise substitute help
-
-help:
-	@echo "Usage:"
-	@echo "  make symbolise   # Replace hardcoded values -> symbols"
-	@echo "  make substitute  # Replace symbols -> actual values"
-
-symbolise:
-	bash $(SYMBOLISE)
+symbolize:
+	bash scripts/symbolize.sh
 
 substitute:
-	bash $(SUBSTITUTE)
+	bash scripts/substitute.sh
+
+dry-symbolize:
+	bash scripts/symbolize.sh --dry-run
+
+dry-substitute:
+	bash scripts/substitute.sh --dry-run
