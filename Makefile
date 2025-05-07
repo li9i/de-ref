@@ -1,13 +1,13 @@
-.PHONY: symbolize substitute dry-symbolize dry-substitute
+.PHONY: reference dereference dry-reference dry-dereference
 
-symbolize:
-	bash scripts/symbolize.sh
+reference:
+	bash scripts/reference.sh
 
-substitute:
-	bash scripts/substitute.sh
+dereference:
+	bash scripts/dereference.sh
 
-dry-symbolize:
-	bash scripts/symbolize.sh --dry-run
+dry-reference:
+	bash scripts/reference.sh --dry-run
 
-dry-substitute:
-	bash scripts/substitute.sh --dry-run
+dry-dereference:
+	bash scripts/dereference.sh --dry-run
