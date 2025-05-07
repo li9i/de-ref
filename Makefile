@@ -5,8 +5,8 @@ SUBSTITUTE = scripts/substitute.sh
 
 help:
 	@echo "Usage:"
-	@echo "  make symbolise   # Replace hardcoded values → symbols"
-	@echo "  make substitute  # Replace symbols → actual values"
+	@echo "  make symbolise   # Replace hardcoded values -> symbols"
+	@echo "  make substitute  # Replace symbols -> actual values"
 
 symbolise:
 	bash $(SYMBOLISE)
