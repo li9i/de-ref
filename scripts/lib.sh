@@ -20,13 +20,13 @@ if [[ "${1:-}" == "--dry-run" ]]; then
   is_dry_run=true
   echo_yellow "[INFO] Dry-run mode enabled — no files will be modified."
 fi
-
+# ------------------------------------------------------------------------------
 # Escape replacement string for safe use in sed replacement
 escape_sed_replacement() {
   local str="$1"
   printf '%s' "$str" | sed -e 's/[&|]/\\&/g'
 }
-
+# ------------------------------------------------------------------------------
 # Expand env vars and tilde
 expand_env_vars() {
   local str="$1"
@@ -36,7 +36,7 @@ expand_env_vars() {
   fi
   echo "$expanded_str"
 }
-
+# ------------------------------------------------------------------------------
 # Load param fields into symbol, expanded_value, files[]
 load_param() {
   local i=$1
@@ -64,7 +64,7 @@ load_param() {
     files+=("$expanded_file")
   done <<< "$raw_files"
 }
-
+# ------------------------------------------------------------------------------
 # Validate env vars in value string (only for mode=env)
 validate_env_vars() {
   local value_string="$1"
@@ -76,3 +76,4 @@ validate_env_vars() {
     fi
   done
 }
+# ------------------------------------------------------------------------------

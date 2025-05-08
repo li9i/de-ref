@@ -17,7 +17,7 @@ for i in $(seq 0 $((param_count - 1))); do
   safe_expanded_value=$(escape_sed_replacement "$expanded_value")
 
   for file in "${files[@]}"; do
-    echo_green "Substituting \${$symbol} → '$expanded_value' in $file"
+    echo_green "Substituting \${$symbol} --> '$expanded_value' in $file"
 
     if $is_dry_run; then
       echo_yellow "  [DRY-RUN] sed -i 's|\${$symbol}|$safe_expanded_value|g' $file"
