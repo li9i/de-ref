@@ -1,7 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-PARAM_FILE="params/params.yaml"
+# Allow override of param file (default fallback)
+PARAM_FILE="${PARAM_FILE:-params/params.yaml}"
 
 # Colors
 RED='\033[0;31m'

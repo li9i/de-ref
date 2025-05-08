@@ -1,13 +1,13 @@
 .PHONY: reference dereference dry-reference dry-dereference
 
 reference:
-	bash scripts/reference.sh
+	PARAM_FILE=$(PARAM_FILE) bash scripts/reference.sh
 
 dereference:
-	bash scripts/dereference.sh
+	PARAM_FILE=$(PARAM_FILE) bash scripts/dereference.sh
 
 dry-reference:
-	bash scripts/reference.sh --dry-run
+	PARAM_FILE=$(PARAM_FILE) bash scripts/reference.sh --dry-run
 
 dry-dereference:
-	bash scripts/dereference.sh --dry-run
+	PARAM_FILE=$(PARAM_FILE) bash scripts/dereference.sh --dry-run
