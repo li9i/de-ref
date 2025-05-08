@@ -1,11 +1,14 @@
 params:
+  # ----------------------------------------------------------------------------
   - symbol: "c9ad3ee"
     value: "$(var use_case_base_tree_path_absolute)/$(var tree)"
     mode: literal
     files:
       - $HOME/Desktop/test-magna-carta/test-files/file1.txt
+  # ----------------------------------------------------------------------------
   - symbol: "3eec9ad"
     value: "$HOME"
     mode: literal
     files:
       - /home/member/Desktop/test-magna-carta/test-files/file2.txt
+  # ----------------------------------------------------------------------------
