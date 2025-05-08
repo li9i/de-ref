@@ -8,15 +8,19 @@ You want to turn a string (a value) into a variable (a symbol) in a number of fi
 chmod +x install.sh; ./install.sh
 ```
 
-## Set values, symbols, and files
+## Set values and files
 
-Set the desired symbols, their values, and the affected files in some file under `params/`
+For each unique configuration set the desired values and the affected files in some file under `params/`, e.g. `params.yaml`
 
 ```bash
 params/params.yaml
 ```
 
-for each unique configuration.
+## Generate symbols for each value
+
+```bash
+make generate-symbols PARAM_FILE=params/params_kk.yaml
+```
 
 # Usage
 
