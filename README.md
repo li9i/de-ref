@@ -39,5 +39,5 @@ Turn a symbol into a value with
 
 ```bash
 # use make dry-dereference for a dry run
-make dereference 
+make dereference PARAM_FILE=params/params.yaml
 ```
