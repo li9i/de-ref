@@ -19,7 +19,7 @@ params/params.yaml
 ## Generate symbols for each value
 
 ```bash
-make generate-symbols PARAM_FILE=params/params_kk.yaml
+make generate-symbols PARAM_FILE=params/params.yaml
 ```
 
 # Usage
