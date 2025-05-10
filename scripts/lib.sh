@@ -15,6 +15,8 @@ echo_green() { echo -e "${GREEN}$*${NC}"; }
 echo_yellow() { echo -e "${YELLOW}$*${NC}"; }
 echo_red() { echo -e "${RED}$*${NC}"; }
 
+MODE_DEFAULT="literal"
+
 # Parse --dry-run
 is_dry_run=false
 if [[ "${1:-}" == "--dry-run" ]]; then
@@ -52,9 +54,14 @@ load_param() {
     eval "expanded_value=\"$value\""
   elif [[ "$mode" == "literal" ]]; then
     expanded_value="$value"
+  elif [[ -z "$mode" ]]; then
+    echo_yellow "WARN: Missing mode for symbol '$symbol'. Using default ($MODE_DEFAULT)."
+    mode="$MODE_DEFAULT"
+    expanded_value="$value"
   else
-    echo_red "ERROR: Invalid mode '$mode' for symbol '$symbol'. Use 'env' or 'literal'."
-    exit 1
+    echo_yellow "WARN: Invalid mode '$mode' for symbol '$symbol'. Using default ($MODE_DEFAULT)."
+    mode="$MODE_DEFAULT"
+    expanded_value="$value"
   fi
 
   # Expand env vars and tilde in files
