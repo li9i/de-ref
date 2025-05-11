@@ -1,4 +1,4 @@
-.PHONY: generate-symbols reference dereference dry-reference dry-dereference
+.PHONY: generate-symbols reference dereference dry-reference dry-dereference unlock
 
 generate-symbols:
 	PARAM_FILE=$(PARAM_FILE) bash scripts/generate-symbols.sh
@@ -14,3 +14,7 @@ dry-reference:
 
 dry-dereference:
 	PARAM_FILE=$(PARAM_FILE) bash scripts/dereference.sh --dry-run
+
+unlock:
+	rm -f .lock/symbolization.lock
+	@echo "[INFO] Lock manually cleared"

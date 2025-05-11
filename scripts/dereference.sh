@@ -1,6 +1,15 @@
 #!/bin/bash
 set -euo pipefail
+# ------------------------------------------------------------------------------
+# Check if symbolisation has not taken place
+# ------------------------------------------------------------------------------
+LOCK_FILE=".lock/symbolization.lock"
 
+if [[ ! -f "$LOCK_FILE" ]]; then
+  echo -e "${RED}[ERROR] No symbolization lock found. Nothing to substitute/unlock.${NC}"
+  exit 1
+fi
+# ------------------------------------------------------------------------------
 source "$(dirname "$0")/lib.sh" "$@"
 
 param_count=$(yq eval '.params | length' "$PARAM_FILE")
@@ -26,3 +35,8 @@ for i in $(seq 0 $((param_count - 1))); do
     fi
   done
 done
+# ------------------------------------------------------------------------------
+# Unlock
+# ------------------------------------------------------------------------------
+rm -f "$LOCK_FILE"
+echo -e "${GREEN}[INFO] Symbolization lock released.${NC}"
