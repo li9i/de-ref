@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail
+source "$(dirname "$0")/lib.sh" "$@"
 # ------------------------------------------------------------------------------
 # Check if symbolisation has not taken place
 # ------------------------------------------------------------------------------
@@ -10,8 +11,6 @@ if [[ ! -f "$LOCK_FILE" ]]; then
   exit 1
 fi
 # ------------------------------------------------------------------------------
-source "$(dirname "$0")/lib.sh" "$@"
-
 param_count=$(yq eval '.params | length' "$PARAM_FILE")
 
 for i in $(seq 0 $((param_count - 1))); do

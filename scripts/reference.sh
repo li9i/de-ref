@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail
+source "$(dirname "$0")/lib.sh" "$@"
 # ------------------------------------------------------------------------------
 # Lock symbolisation
 # ------------------------------------------------------------------------------
@@ -17,8 +18,6 @@ echo -e "${GREEN}[INFO] Symbolization lock acquired.${NC}"
 # Clean lock if interrupted
 trap 'echo -e "${YELLOW}[WARN] Script interrupted. Removing lock."; rm -f "$LOCK_FILE"; exit 1' INT TERM
 # ------------------------------------------------------------------------------
-source "$(dirname "$0")/lib.sh" "$@"
-
 param_count=$(yq eval '.params | length' "$PARAM_FILE")
 
 for i in $(seq 0 $((param_count - 1))); do
