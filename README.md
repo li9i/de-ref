@@ -16,6 +16,14 @@ For each unique configuration set the desired values and the affected files in s
 params/params.yaml
 ```
 
+## Validate that affected files exist beforehand
+
+```bash
+make validate-paths PARAM_FILE=params/params.yaml
+```
+
+
+
 ## Generate symbols for each value
 
 ```bash

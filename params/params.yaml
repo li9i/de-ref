@@ -1,14 +1,30 @@
 params:
   # ----------------------------------------------------------------------------
-  - symbol: "f2094ae"
-    value: "$(var use_case_base_tree_path_absolute)/$(var tree)"
+  - symbol: "0fe8735"
+    value: "$(find-pkg-share static_tf_republisher)/config/frames.yaml"
     mode: literal
     files:
-      - $HOME/Desktop/de-ref/test-files/file1.txt
+      - /home/robetarme_user/ros2_ws/src/static_tf_republisher/launch/static_tf_republisher.launch.xml
+      - /home/robetarme_user/ros2_ws/install/static_tf_republisher/share/static_tf_republisher/launch/static_tf_republisher.launch.xml
   # ----------------------------------------------------------------------------
-  - symbol: "37ec171"
-    value: "$HOME"
+  - symbol: "79cc7fd"
+    value: "<param name=\"publish_rate\"  value=\"2.0\"/>"
     mode: literal
     files:
-      - /home/member/Desktop/de-ref/test-files/file2.txt
+      - /home/robetarme_user/ros2_ws/src/static_tf_republisher/launch/static_tf_republisher.launch.xml
+      - /home/robetarme_user/ros2_ws/install/static_tf_republisher/share/static_tf_republisher/launch/static_tf_republisher.launch.xml
+      # ----------------------------------------------------------------------------
+  - symbol: "b689777"
+    value: "parent: \"robot_base_footprint\""
+    mode: literal
+    files:
+      - /home/robetarme_user/ros2_ws/src/static_tf_republisher/config/frames.yaml
+      - /home/robetarme_user/ros2_ws/install/static_tf_republisher/share/static_tf_republisher/config/frames.yaml
+      # ----------------------------------------------------------------------------
+  - symbol: "4fce5f2"
+    value: "child: \"laser_camera\""
+    mode: literal
+    files:
+      - /home/robetarme_user/ros2_ws/src/static_tf_republisher/config/frames.yaml
+      - /home/robetarme_user/ros2_ws/install/static_tf_republisher/share/static_tf_republisher/config/frames.yaml
 # ----------------------------------------------------------------------------

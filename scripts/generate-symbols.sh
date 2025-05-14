@@ -3,7 +3,7 @@ set -euo pipefail
 
 source "$(dirname "$0")/lib.sh"
 
-echo_green "[INFO] Generating hash-based symbols in param file: $PARAM_FILE"
+echo "[INFO] Generating hash-based symbols in param file: $PARAM_FILE"
 
 param_count=$(yq eval '.params | length' "$PARAM_FILE")
 mapfile -t existing_symbols < <(yq eval '.params[].symbol' "$PARAM_FILE" | grep -v 'null' | grep -v '^$')
@@ -32,11 +32,11 @@ for i in $(seq 0 $((param_count - 1))); do
     fi
 
     existing_symbols+=("$candidate")
-    echo_yellow "[INFO] Param[$i] → Generated symbol $candidate (from $mode:$value)"
+    echo "[INFO] Param[$i] → Generated symbol $candidate (from $mode:$value)"
     yq eval ".params[$i].symbol = \"$candidate\"" -i "$PARAM_FILE"
   else
-    echo_green "[OK] Param[$i] already has symbol → $current_symbol"
+    echo "[OK] Param[$i] already has symbol → $current_symbol"
   fi
 done
 
-echo_green "[DONE] Symbols generated successfully (hash-based)."
+echo_green "Symbols generated successfully."
