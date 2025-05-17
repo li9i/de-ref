@@ -1,6 +1,6 @@
 ## What
 
-You want to turn a string (a value) into a variable (a symbol) in a number of files, so that if you have multiple values for this variable you may keep various configurations in order to set them and reset them, change them back and forth, possibly during runtime, without having to remember how to adjust every parameter.
+You want to turn a string (a value) into a variable (a symbol) in a number of files, so that if you have multiple values for this variable you may keep various configurations in order to set them and reset them, change them back and forth, possibly during runtime, without having to remember how to adjust each parameter everytime.
 
 ## Install dependencies
 
